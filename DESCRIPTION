@@ -1,0 +1,16 @@
+Package: DataAll4m
+Title: Analiza danych dla sklepu muzycznego ALL4m
+Version: 0.0.0.9000
+Authors@R: person("Karolina", "Naskret", email = "karola.naskret@gmail.com", role = c("aut", "cre"))
+Description: DataAll4m to pakiet stworzony dla sklepu muzycznego All4m w celu analizy danych sprzedazowych.
+Depends: R (>= 3.5.1)
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    dplyr,
+    ggplot2,
+    tidyr,
+    openxlsx,
+    scales,
+    EnvStats
+RoxygenNote: 6.1.1
