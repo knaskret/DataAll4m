@@ -12,7 +12,7 @@
 #' @export
 
 napiszKat <- function(id_kat, symbol = " -> "){
-  co <- naszeKategoriePL %>% filter(Id_kategorii == id_kat)
+  co <- naszeKategorie %>% filter(Id_kategorii == id_kat)
   ktore <- min(which(co == ""))
   napis <- co[[2]]
   for(i in 3:(ktore-1)){
