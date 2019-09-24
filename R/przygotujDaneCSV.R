@@ -27,7 +27,8 @@ przygotujDaneCSV <- function(adres_aktywnych, adres_zakonczonych, model = TRUE){
     filter(Id_kategorii %in% naszeKategorie$Id_kategorii)
   aukcje <- aukcje %>%
     mutate(Sprz_sztuki = Sprzedane*(vmodelSzt(Cena)),
-           Wartosc = Sprz_sztuki*Cena)
+           Wartosc = Sprz_sztuki*Cena) %>%
+  distinct()
   return(aukcje)
   
 } 
