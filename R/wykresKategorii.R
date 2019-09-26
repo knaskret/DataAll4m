@@ -33,7 +33,7 @@ wykresKategorii <- function(dane, id = 169890){
   srednie_ceny <- full_join(srednie_ceny_nasze, srednie_ceny_zwykle)
   srednie_ceny <- full_join(srednie_ceny, srednie_ceny_promowane)
 
-  srednie_ceny <- gather(srednie_ceny, Co, sr_wart_aukcji, -Id_kategorii)
+  srednie_ceny <- gather(srednie_ceny, Co, sr_cena_aukcji, -Id_kategorii)
   srednie_ceny[is.na(srednie_ceny)] <- 0
 
   srednie_ceny$Co <- as.factor(srednie_ceny$Co)
@@ -121,7 +121,7 @@ wykresKategorii <- function(dane, id = 169890){
     ylab("Wartość") +
     xlab("Kategoria") +
     scale_y_continuous(labels=number) +
-    geom_text(aes(y = pozycja, label=round(sr_wart_aukcji, 0)), vjust = -0.5, color= "black", size=4)
+    geom_text(aes(y = pozycja, label=round(sr_cena_aukcji, 0)), vjust = -0.5, color= "black", size=4)
   
   p2.1 <- ggplot(wartosci3_cz2, aes(x = reorder(numer, -lacznie), y = Wartosc, fill = Co)) + 
     geom_bar(stat="identity", position = position_stack(reverse = TRUE), color = "black") +
@@ -144,7 +144,7 @@ wykresKategorii <- function(dane, id = 169890){
     ylab("Wartość") +
     xlab("Kategoria") +
     scale_y_continuous(labels = number) +
-    geom_text(aes(y = pozycja, label=round(sr_wart_aukcji, 0)), vjust = -0.5, color="black", size=4)
+    geom_text(aes(y = pozycja, label=round(sr_cena_aukcji, 0)), vjust = -0.5, color="black", size=4)
   
   p3.1 <- ggplot(wartosci3_cz3, aes(x = reorder(numer, -lacznie), y = Wartosc, fill = Co)) + 
     geom_bar(stat="identity", position = position_stack(reverse = TRUE), color = "black") +
@@ -167,7 +167,7 @@ wykresKategorii <- function(dane, id = 169890){
     ylab("Wartość") +
     xlab("Kategoria") +
     scale_y_continuous(labels = number, limits = c(0, 15500)) +
-    geom_text(aes(y = pozycja, label=round(sr_wart_aukcji, 0)), vjust = -0.5, color="black", size=4.5)
+    geom_text(aes(y = pozycja, label=round(sr_cena_aukcji, 0)), vjust = -0.5, color="black", size=4.5)
   return(list("wykresCaly" = p,
               "wykres1" = p1, 
               "wykres2skala" = p2.1, 
